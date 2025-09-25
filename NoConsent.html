@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact Me</title>
+<script>
+  window.onload = function() {
+    // Replace with your number and message
+    var phone = "+15551234567";
+    var message = "Hi, I saw a photo of you online.\nI did NOT give consent for this to be posted.\nPlease contact me so it can be removed.";
+
+    // Encode message for URL
+    var encodedMessage = encodeURIComponent(message);
+
+    // Redirect to SMS URI
+    window.location.href = "sms:" + phone + "?body=" + encodedMessage;
+  };
+</script>
+</head>
+<body>
+<p>If your SMS app does not open automatically, <a id="smsLink">click here to send the message</a>.</p>
+<script>
+  // Fallback link
+  document.getElementById("smsLink").href = "sms:+15551234567?body=" + encodeURIComponent(
+    "Hi, I saw a photo of you online.\nI did NOT give consent for this to be posted.\nPlease contact me so it can be removed."
+  );
+</script>
+</body>
+</html>
