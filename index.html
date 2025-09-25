@@ -3,9 +3,28 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Contact Me</title>
+<title>No Consent Message</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    padding: 2em;
+    background-color: #fff;
+    color: #000;
+  }
+  .container {
+    max-width: 500px;
+    margin: auto;
+  }
+  button {
+    margin-top: 2em;
+    padding: 1em 2em;
+    font-size: 1.2em;
+    cursor: pointer;
+  }
+</style>
 <script>
-  window.onload = function() {
+  function sendSMS() {
     // Your phone number
     var phone = "+15551234567";
 
@@ -17,16 +36,21 @@
 
     // Redirect to SMS URI
     window.location.href = "sms:" + phone + "?body=" + encodedMessage;
-  };
+  }
 </script>
 </head>
 <body>
-<p>If your SMS app does not open automatically, <a id="smsLink">click here to send the message</a>.</p>
-<script>
-  // Fallback link
-  document.getElementById("smsLink").href = "sms:+15551234567?body=" + encodeURIComponent(
-    "Hi, I saw a photo of you online.\nI did NOT give consent for this to be posted.\nPlease contact me so it can be removed."
-  );
-</script>
+<div class="container">
+  <h1>No Consent Given</h1>
+  <p>
+    A photo of me was posted online without my consent.  
+    If you have seen this photo, please help by sending a message to notify me.
+  </p>
+  <p>
+    Clicking the button below will open your SMS app with a message prefilled for you.  
+    You can review and send it yourself.
+  </p>
+  <button onclick="sendSMS()">Send Notification SMS</button>
+</div>
 </body>
 </html>
