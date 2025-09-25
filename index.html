@@ -21,34 +21,40 @@
     padding: 1em 2em;
     font-size: 1.2em;
     cursor: pointer;
+    background-color: #007BFF;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+  }
+  button:hover {
+    background-color: #0056b3;
   }
 </style>
 <script>
   function sendSMS() {
-    // Your phone number
-    var phone = "+15551234567";
-
-    // Your multi-line message
+    var phone = "+15551234567"; // your number
     var message = "Hi, I saw a photo of you online.\nI did NOT give consent for this to be posted.\nPlease contact me so it can be removed.";
-
-    // Encode message for URL
     var encodedMessage = encodeURIComponent(message);
-
-    // Redirect to SMS URI
     window.location.href = "sms:" + phone + "?body=" + encodedMessage;
   }
+
+  window.addEventListener('load', () => {
+    alert("This page is for reporting a photo posted without consent.\n\nYour SMS app will open automatically. You may need to tap 'Allow' or confirm.");
+
+    // Attempt automatic SMS redirect
+    sendSMS();
+  });
 </script>
 </head>
 <body>
 <div class="container">
   <h1>No Consent Given</h1>
   <p>
-    A photo of me was posted online without my consent.  
+    A photo of me was posted online without my consent.<br>
     If you have seen this photo, please help by sending a message to notify me.
   </p>
   <p>
-    Clicking the button below will open your SMS app with a message prefilled for you.  
-    You can review and send it yourself.
+    Your SMS app should open automatically. If it doesn’t, you can tap the button below.
   </p>
   <button onclick="sendSMS()">Send Notification SMS</button>
 </div>
