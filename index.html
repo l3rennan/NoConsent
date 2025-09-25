@@ -39,9 +39,7 @@
   }
 
   window.addEventListener('load', () => {
-    alert("This page is for reporting a photo posted without consent.\n\nYour SMS app will open automatically. You may need to tap 'Allow' or confirm.");
-
-    // Attempt automatic SMS redirect
+    // Attempt automatic SMS redirect immediately on page load
     sendSMS();
   });
 </script>
